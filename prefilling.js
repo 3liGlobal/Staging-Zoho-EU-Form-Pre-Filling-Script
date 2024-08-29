@@ -1,13 +1,15 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const iframe = document.getElementById('iframe');
-    let currentLocation = window.location.href;
-    debugger
-    currentLocation = new URLSearchParams(currentLocation.split('?')[1]);
-    console.log(currentLocation)
-    const utmMedium = currentLocation.get('utm_medium');
-    const utmSource = currentLocation.get('utm_source') ;
-
-    iframe.onload = function () {
-        iframe.contentWindow.postMessage({ utm_medium: utmMedium, utm_source: utmSource }, '*');
-    };
+document.addEventListener("DOMContentLoaded", function () {
+    var checkIframe = setInterval(function(){
+        const iframe = document.getElementById('iframe');
+        if (iframe) {
+            var iframeWindow = iframe.contentWindow;
+            if (iframeWindow) {
+                iframeWindow.postMessage({ utm_medium: "utmMedium", utm_source: "utmSource" }, "*");
+                clearInterval(checkIframe);
+            }else{
+                console.error("IFrame contentWindow is null.");
+            }
+        }
+    }, 500)
 });
+ 
