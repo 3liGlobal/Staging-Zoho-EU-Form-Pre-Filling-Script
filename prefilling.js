@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const iframe = document.getElementById('iframe');
     let currentLocation = window.location.href;
+    debugger
     currentLocation = new URLSearchParams(currentLocation.split('?')[1]);
+    console.log(currentLocation)
     const utmMedium = currentLocation.get('utm_medium');
     const utmSource = currentLocation.get('utm_source') ;
 
