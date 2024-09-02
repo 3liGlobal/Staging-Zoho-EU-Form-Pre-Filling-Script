@@ -4,21 +4,33 @@ document.addEventListener("DOMContentLoaded", function () {
         const iframe = document.getElementById('iframe');
         if (iframe) {
 
-                let currentLocation = window.location.href.split('#')[0];
-                let urlParams = new URL(currentLocation).searchParams;
+            let currentLocation = window.location.href.split('#')[0];
+            let urlParams = new URL(currentLocation).searchParams;
 
-                const utmMedium = urlParams.get('utm_medium');
-                const utmSource = urlParams.get('utm_source');
+            const utmMedium = urlParams.get('utm_medium');
+            const utmSource = urlParams.get('utm_source');
 
-                iframe.onload = function () {
-                    console.log("Inside")
-                    console.log(utmMedium, utmSource)
-                    iframe.contentWindow.postMessage({ utm_medium: "utmMedium", utm_source: "utmSource" }, '*');
-                }
+            iframe.onload = function () {
+                console.log("Inside")
+                console.log(utmMedium, utmSource)
+                iframe.contentWindow.postMessage({ utm_medium: "utmMedium", utm_source: "utmSource" }, '*');
+            }
 
-                clearInterval(checkIframe);
+            clearInterval(checkIframe);
         } else {
             console.error("IFrame is null.");
         }
     }, 500);
 });
+
+window.addEventListener(
+    'message'
+    ,
+    function
+        (event) {
+        console.
+            log
+            (
+                "Parent page: Received message:"
+                , event.data);
+    });
