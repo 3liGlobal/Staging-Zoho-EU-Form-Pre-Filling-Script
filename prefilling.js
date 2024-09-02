@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 iframe.onload = function () {
                     console.log("Inside")
                     console.log(utmMedium, utmSource)
-                    iframe.contentWindow.postMessage({ utm_medium: utmMedium, utm_source: utmSource }, '*');
+                    iframe.contentWindow.postMessage({ utm_medium: "utmMedium", utm_source: "utmSource" }, '*');
                 }
 
                 clearInterval(checkIframe);
