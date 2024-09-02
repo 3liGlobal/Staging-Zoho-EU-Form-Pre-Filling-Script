@@ -22,11 +22,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }, 500);
 });
-
-window.addEventListener(
-    'message'
-    ,
-    function
-        (event) {
-        console.log(event)
-    });
