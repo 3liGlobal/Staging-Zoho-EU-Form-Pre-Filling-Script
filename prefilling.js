@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(utmMedium, utmSource)
 
                 iframeWindow.postMessage({ utm_medium: utmMedium, utm_source: utmSource }, "*");
-                console.log("Message posted")
+                console.log(iframe)
                 clearInterval(checkIframe);
             } else {
                 console.error("IFrame contentWindow is null.");
