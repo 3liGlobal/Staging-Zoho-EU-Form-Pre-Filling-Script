@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const utmMedium = urlParams.get('utm_medium');
                 const utmSource = urlParams.get('utm_source');
 
-                console.log(utmMedium, utmSource)
-
                 iframe.onload = function () {
                     console.log("Inside")
+                    console.log(utmMedium, utmSource)
                     iframe.contentWindow.postMessage({ utm_medium: utmMedium, utm_source: utmSource }, '*');
                 }
 
