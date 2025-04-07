@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const utmMedium = urlParams.get('utm_medium');
             const utmCampaign = urlParams.get('utm_campaign');
 
-            console.log(utmMedium, utmCampaign)
+            console.log(utmCampaign)
             iframe.contentWindow.postMessage({ utm_medium: utmMedium, utm_campaign: utmCampaign }, '*');
 
             clearInterval(checkIframe);
