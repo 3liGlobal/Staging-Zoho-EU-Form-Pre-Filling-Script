@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
             let urlParams = new URL(currentLocation).searchParams;
 
             const utmMedium = urlParams.get('utm_medium');
-            const utmCampaign = urlParams.get('utm_Campaign');
+            const utmSource = urlParams.get('utm_source');
 
-            console.log(utmMedium, utmCampaign)
-            iframe.contentWindow.postMessage({ utm_medium: utmMedium, utm_Campaign: utmCampaign }, '*');
+            console.log(utmMedium, utmSource)
+            iframe.contentWindow.postMessage({ utm_medium: utmMedium, utm_source: utmSource }, '*');
 
             clearInterval(checkIframe);
         } else {
